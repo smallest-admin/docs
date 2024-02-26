@@ -5,7 +5,7 @@
     "dark": "/logo/sapien_white_logo.svg",
     "light": "/logo/sapien_purple_logo.svg"
   },
-  "favicon": "/logo/sapien_white_logo.svg",
+  "favicon": "/logo/smallest_white_logo.svg",
   "colors": {
     "primary": "#FBF7FF",
     "light": "#FBF7FF",
@@ -33,6 +33,10 @@
     {
       "name": "Integrations",
       "url": "integrations"
+    },
+    {
+      "name": "FAQs",
+      "url": "faqs"
     }
   ],
   "anchors": [
@@ -67,6 +71,7 @@
         "essentials/audiences",
         "essentials/campaigns",
         "essentials/conversions",
+        "essentials/account",
         "essentials/code",
         "essentials/images",
         "essentials/navigation",
