@@ -7,9 +7,9 @@
   },
   "favicon": "/logo/smallest_white_logo.svg",
   "colors": {
-    "primary": "#FBF7FF",
-    "light": "#FBF7FF",
-    "dark": "#433456",
+    "primary": "#22182A",
+    "light": "#D7C9FF",
+    "dark": "#22182A",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -68,14 +68,13 @@
       "group": "Essentials",
       "pages": [
         "essentials/agents",
+        "essentials/scripts",
+        "essentials/voices",
+        "essentials/conversions",
         "essentials/audiences",
         "essentials/campaigns",
-        "essentials/conversions",
         "essentials/account",
-        "essentials/code",
-        "essentials/images",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/pricing"
       ]
     },
     {
@@ -88,6 +87,12 @@
       "group": "Integrations",
       "pages": [
         "integrations/introduction"
+      ]
+    },
+    {
+      "group": "FAQs",
+      "pages": [
+        "faqs/faqs"
       ]
     }
   ],
