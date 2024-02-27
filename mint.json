@@ -5,7 +5,7 @@
     "dark": "/logo/sapien_white_logo.svg",
     "light": "/logo/sapien_purple_logo.svg"
   },
-  "favicon": "/logo/smallest_white_logo.svg",
+  "favicon": "/logo/favicon.svg",
   "colors": {
     "primary": "#22182A",
     "light": "#D7C9FF",
