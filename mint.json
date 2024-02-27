@@ -73,8 +73,7 @@
         "essentials/conversions",
         "essentials/audiences",
         "essentials/campaigns",
-        "essentials/account",
-        "essentials/pricing"
+        "essentials/account"
       ]
     },
     {
