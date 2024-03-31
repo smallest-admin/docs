@@ -79,7 +79,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/start_a_call",
+        "api-reference/start_a_campaign"
       ]
     },
     {

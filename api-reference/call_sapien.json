@@ -1,0 +1,247 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OpenAPI Plant Store",
+      "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+      "license": {
+        "name": "MIT"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://sandbox.mintlify.com"
+      }
+    ],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "paths": {
+      "/start_a_call": {
+        "post": {
+          "description": "Schedules a call to an individual contact.",
+          "requestBody": {
+            "description": "Schedule a call to a number.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/new_call"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Call scheduled successfuly.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Successful"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/start_a_campaign": {
+        "post": {
+          "description": "Schedules a campaign to call a list of contacts.",
+          "requestBody": {
+            "description": "Schedule a call to a number.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/start_a_campaign"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Call scheduled successfuly.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Successful_Campaign"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error_Campaign"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "start_a_call": {
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "user_id": {
+              "description": "ID of the user to be used.",
+              "type": "string"
+            },
+            "agent_id": {
+              "description": "ID of the agent to be used.",
+              "type": "string"
+            }
+          }
+        },
+        "start_a_campaign": {
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "user_id": {
+              "description": "ID of the user to be used.",
+              "type": "string"
+            },
+            "agent_id": {
+              "description": "ID of the agent to be used.",
+              "type": "string"
+            },
+            "campaign_id": {
+              "description": "ID of the campaign to be used",
+              "type": "string"
+            },
+            "audience_list": {
+              "description": "IDs of the audiences to be used.",
+              "type": "array",
+              "items":{
+                "type": "string"
+              }
+            }
+          }
+        },
+        "new_call": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/start_a_call"
+            },
+            {
+              "required": [
+                "contact",
+                "user_id",
+                "agent_id"
+              ],
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "description": "Contact number of the user.",
+                  "type": "object",
+                  "properties": {
+                    "country_code": {
+                      "description": "Country code of the user. Use + aling with the code. For example - +91",
+                      "type": "string"
+                    },
+                    "phone_number": {
+                      "description": "10 digit phone number of the user.",
+                      "type": "string"
+                    }
+                }
+              }
+            }
+          }
+          ]
+        },
+        "Error": {
+          "required": [
+            "message",
+            "request"
+          ],
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "request": {
+              "type": "object"
+            }
+          }
+        },
+        "Successful": {
+          "required": [
+            "message",
+            "call_scheduled"
+          ],
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "call_scheduled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Successful_Campaign": {
+          "required": [
+            "message",
+            "campaign_scheduled"
+          ],
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "campaign_scheduled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Error_Campaign": {
+          "required": [
+            "message",
+            "request",
+            "calls_to_make"
+          ],
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "request": {
+              "type": "object"
+            },
+            "calls_to_make": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer"
+        }
+      }
+    }
+  }
