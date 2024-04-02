@@ -80,8 +80,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/openapi/start_call",
-        "api-reference/openapi/start_campaign"
+        "api-reference/sapien-api/start_call",
+        "api-reference/sapien-api/start_campaign"
       ]
     },
     {
