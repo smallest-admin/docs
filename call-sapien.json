@@ -10,7 +10,7 @@
     },
     "servers": [
       {
-        "url": "http://sandbox.mintlify.com"
+        "url": "https://call-dev.smallest.ai"
       }
     ],
     "security": [
@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "/start_a_call": {
+      "/start_call": {
         "post": {
           "description": "Schedules a call to an individual contact.",
           "requestBody": {
@@ -57,7 +57,7 @@
           }
         }
       },
-      "/start_a_campaign": {
+      "/start_campaign": {
         "post": {
           "description": "Schedules a campaign to call a list of contacts.",
           "requestBody": {
@@ -65,7 +65,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/start_a_campaign"
+                  "$ref": "#/components/schemas/start_campaign"
                 }
               }
             },
@@ -98,7 +98,7 @@
     },
     "components": {
       "schemas": {
-        "start_a_call": {
+        "start_call": {
           "required": [
             "name"
           ],
@@ -114,7 +114,7 @@
             }
           }
         },
-        "start_a_campaign": {
+        "start_campaign": {
           "required": [
             "name"
           ],
@@ -144,7 +144,7 @@
         "new_call": {
           "allOf": [
             {
-              "$ref": "#/components/schemas/start_a_call"
+              "$ref": "#/components/schemas/start_call"
             },
             {
               "required": [
@@ -162,7 +162,7 @@
                       "description": "Country code of the user. Use + aling with the code. For example - +91",
                       "type": "string"
                     },
-                    "phone_number": {
+                    "phone": {
                       "description": "10 digit phone number of the user.",
                       "type": "string"
                     }
@@ -239,7 +239,7 @@
       },
       "securitySchemes": {
         "bearerAuth": {
-          "type": "http",
+          "type": "https",
           "scheme": "bearer"
         }
       }

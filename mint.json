@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Sapien",
+  "openapi": ["/call-sapien.json"],
   "logo": {
     "dark": "/logo/sapien_white_logo.svg",
     "light": "/logo/sapien_purple_logo.svg"
@@ -79,8 +80,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/start_a_call",
-        "api-reference/start_a_campaign"
+        "api-reference/start_call",
+        "api-reference/start_campaign"
       ]
     },
     {
